@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Copper Crm App Regression Suite" verbose="4" thread-count="1" parallel="tests">
+    <test name="Login Page Test">
+        <classes>
+            <class name="com.qa.copperCrm.tests.LoginPageTest"/>
+        </classes>
+    </test>
+
+    <test name="People Page Test">
+        <classes>
+            <class name="com.qa.copperCrm.tests.PeoplePageTest"/>
+        </classes>
+    </test>
+</suite>
