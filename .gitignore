@@ -3,6 +3,8 @@ screenshot/
 test-output/
 build/
 reports/
+screenshots/
+src/main/java/com/qa/copperCrm/factory/
 
 application.log
 ##############################

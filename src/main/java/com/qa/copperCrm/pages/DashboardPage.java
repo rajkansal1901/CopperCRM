@@ -67,6 +67,7 @@ public class DashboardPage {
      */
     public boolean isProfileIconVisible() {
         elementUtil.waitUntilElementVisibility(profileIcon, AppConstants.DEFAULT_SHORT_TIMEOUT);
+        elementUtil.screenshot();
         return profileIcon.isDisplayed();
     }
 
