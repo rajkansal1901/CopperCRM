@@ -21,7 +21,7 @@ public class ElementUtil {
 
     public ElementUtil(WebDriver driver) {
         this.driver = driver;
-        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(AppConstants.DEFAULT_SHORT_TIMEOUT));
+        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(AppConstants.DEFAULT_MEDIUM_TIMEOUT));
         actions = new Actions(driver);
         jsUtils = new JavaScriptExecutorUtils(driver);
     }
