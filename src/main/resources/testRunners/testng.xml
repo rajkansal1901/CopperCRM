@@ -7,9 +7,15 @@
         </classes>
     </test>
 
-    <test name="People Page Test">
+    <test name="Dashboard Page Test">
         <classes>
-            <class name="com.qa.copperCrm.tests.PeoplePageTest"/>
+            <class name="com.qa.copperCrm.tests.DashboardPageTest"/>
+        </classes>
+    </test>
+
+    <test name="Add Person Page Test">
+        <classes>
+            <class name="com.qa.copperCrm.tests.AddPersonPageTest"/>
         </classes>
     </test>
 </suite>
