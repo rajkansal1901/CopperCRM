@@ -23,7 +23,7 @@ public class BaseTest {
     protected TasksPage tasksPage;
     protected SoftAssert softAssert;
 
-    @Parameters("browser")
+    @Parameters({"browser"})
     @BeforeTest
     public void setup(@Optional String browserName) {
         driverFactory = new DriverFactory();

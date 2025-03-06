@@ -2,14 +2,14 @@ package com.qa.copperCrm.utils;
 
 import com.qa.copperCrm.constants.AppConstants;
 import com.qa.copperCrm.factory.DriverFactory;
-import org.aspectj.util.FileUtil;
-import org.openqa.selenium.*;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
-import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
@@ -152,16 +152,6 @@ public class ElementUtil {
                 element.click();
                 break;
             }
-        }
-    }
-    public void screenshot() {
-        long currentTime = System.currentTimeMillis();
-        TakesScreenshot screenshot = (TakesScreenshot) driver;
-        File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
-        File destination = new File("screenshots/sc" + currentTime + ".png");
-        try {
-            FileUtil.copyFile(srcFile, destination);
-        } catch (IOException e) {
         }
     }
 }

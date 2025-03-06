@@ -22,6 +22,7 @@ public class DriverFactory {
     protected WebDriver driver;
     private Properties properties;
     public static String isHighlight;
+    public static ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
     /**
      * this method is used to initialize browser based on config.properties file
@@ -37,27 +38,31 @@ public class DriverFactory {
         OptionManager optionManager = new OptionManager(prop);
         switch (browserName.toLowerCase().trim()) {
             case ("chrome"):
-                driver = new ChromeDriver(optionManager.getChromeOptions());
+                driverThreadLocal.set(new ChromeDriver(optionManager.getChromeOptions()));
                 break;
             case ("edge"):
-                driver = new EdgeDriver(optionManager.getEdgeOptions());
+                driverThreadLocal.set(new EdgeDriver(optionManager.getEdgeOptions()));
                 break;
             case ("firefox"):
-                driver = new FirefoxDriver(optionManager.getFirefoxOptions());
+                driverThreadLocal.set(new FirefoxDriver(optionManager.getFirefoxOptions()));
                 break;
             case ("safari"):
                 if (System.getProperty("os.name").toLowerCase().contains("windows")) {
-                    driver = new SafariDriver();
+                    driverThreadLocal.set(new SafariDriver());
                     break;
                 }
             default:
                 System.out.println(AppError.INVALID_BROWSER_MESSAGE + browserName);
                 throw new BrowserException(AppError.INVALID_BROWSER_MESSAGE + browserName);
         }
-        driver.manage().deleteAllCookies();
-        driver.get(prop.getProperty("url"));
+        getDriver().manage().deleteAllCookies();
+        getDriver().get(prop.getProperty("url"));
 
-        return driver;
+        return getDriver();
+    }
+
+    public static WebDriver getDriver() {
+        return driverThreadLocal.get();
     }
 
     /**
@@ -101,10 +106,10 @@ public class DriverFactory {
      * this method is used to take screenshot
      * @return String(File path)
      */
-    public String screenshot() {
-        TakesScreenshot screenshot = (TakesScreenshot) driver;
+    public static String screenshot() {
+        TakesScreenshot screenshot = (TakesScreenshot) getDriver();
         File srcfile = screenshot.getScreenshotAs(OutputType.FILE);
-        String path = System.getProperty("user.dir") + "/screenshot/" + System.currentTimeMillis() + ".png";
+        String path = "screenshots/" + System.currentTimeMillis() + ".png";
         File destination = new File(path);
         try {
             FileHandler.copy(srcfile, destination);
