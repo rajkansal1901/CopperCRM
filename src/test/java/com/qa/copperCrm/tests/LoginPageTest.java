@@ -28,7 +28,7 @@ public class LoginPageTest extends BaseTest {
     @Test(priority = Integer.MAX_VALUE)
     public void loginTest() {
         dashboardPage = loginPage.doLogin(properties.getProperty("email"), properties.getProperty("password"));
-        Assert.assertEquals(dashboardPage.getDashboardPageTitle(), AppConstants.DASHBOARD_PAGE_TITLE + 8);
+        Assert.assertEquals(dashboardPage.getDashboardPageTitle(), AppConstants.DASHBOARD_PAGE_TITLE);
     }
 
     @AfterClass
