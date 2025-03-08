@@ -60,8 +60,4 @@ public class GeneralUtils {
             System.out.println(e.getMessage());
         }
     }
-
-    public static void main(String[] args) {
-        System.out.println(getLocalTime());
-    }
 }

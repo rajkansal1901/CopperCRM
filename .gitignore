@@ -4,6 +4,8 @@ test-output/
 build/
 reports/
 screenshots/
+src/main/resources/
+src/main/java/com/qa/copperCrm/dataProvider/
 
 application.log
 ##############################
