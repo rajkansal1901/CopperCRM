@@ -2,6 +2,7 @@ package com.qa.copperCrm.tests;
 
 import com.qa.copperCrm.base.BaseTest;
 import com.qa.copperCrm.constants.AppConstants;
+import com.qa.copperCrm.dataProvider.TestData;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -33,18 +34,8 @@ public class PeoplePageTest extends BaseTest {
         return "abc" + System.currentTimeMillis() + "@gmail.com";
     }
 
-    @DataProvider
-    public Object[][] addPersonData() {
-        return new Object[][]{
-                {"Stephen", "Martinez", "Mr", "Stephen Ltd", "ABC", "4544333", "4444 Avenue", "Montreal", "Quebec", "H3NNN4", "Canada", "New"},
-                {"Carl", "Marx", "Mr", "Carl Ltd", "ABC", "5434635", "5675 Avenue", "Montreal", "Quebec", "H3NNN4", "Canada", "New"},
-                {"Rohan", "Kumar", "Mr", "Rohan Ltd", "ABC", "454445433", "565 Avenue", "Montreal", "Quebec", "H3NNN4", "Canada", "New"},
-                {"John", "Mid", "Mr", "John Ltd", "ABC", "6353543", "666 Avenue", "Montreal", "Quebec", "H3NNN4", "Canada", "New"},
-                {"Carry", "Anderson", "Mr", "Carry Ltd", "ABC", "6344", "322 Avenue", "Montreal", "Quebec", "H3NNN4", "Canada", "New"},
-        };
-    }
 
-    @Test(dataProvider = "addPersonData")
+    @Test(dataProvider = "addPersonData", dataProviderClass = TestData.class)
     public void addPersonTest(String firstname, String lastname, String prefix, String companyName, String title
             , String workPhone, String street, String city, String state, String zip,
                               String country, String tags) {
@@ -62,15 +53,8 @@ public class PeoplePageTest extends BaseTest {
         softAssert.assertAll();
     }
 
-    @DataProvider
-    public Object[][] deletePeopleRecordData() {
-        return new Object[][]{
-                {"Stephen", "Martinez", "Mr", "Stephen Ltd", "ABC", "4544333", "4444 Avenue", "Montreal", "Quebec", "H3NNN4", "Canada", "New"},
-        };
-    }
 
-
-    @Test(dataProvider = "deletePeopleRecordData")
+    @Test(dataProvider = "deletePeopleRecordData", dataProviderClass = TestData.class)
     public void deleteAllPeopleTest(String firstname, String lastname, String prefix, String companyName, String title
             , String workPhone, String street, String city, String state, String zip,
                                     String country, String tags) {

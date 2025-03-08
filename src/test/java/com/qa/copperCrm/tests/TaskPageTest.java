@@ -2,10 +2,10 @@ package com.qa.copperCrm.tests;
 
 import com.qa.copperCrm.base.BaseTest;
 import com.qa.copperCrm.constants.AppConstants;
+import com.qa.copperCrm.dataProvider.TestData;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class TaskPageTest extends BaseTest {
@@ -28,14 +28,8 @@ public class TaskPageTest extends BaseTest {
         Assert.assertEquals(actualTitle, AppConstants.TASKS_PAGE_TITLE);
     }
 
-    @DataProvider
-    public Object[][] addTask() {
-        return new Object[][]{
-                {"Carl", "November 2026", "2"},
-                {"Roshan", "June 2025", "24"}
-        };
-    }
-    @Test(dataProvider = "addTask")
+
+    @Test(dataProvider = "addTask", dataProviderClass = TestData.class)
     public void addNewTaskTest(String name, String monthYear, String date) {
         tasksPage.addNewTask(name, monthYear, date);
     }
