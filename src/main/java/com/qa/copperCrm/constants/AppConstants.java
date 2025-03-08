@@ -13,7 +13,7 @@ public class AppConstants {
     public static final String ADD_PERSON_PAGE_HEADER_TEXT= "Add a New Person";
 
     public static final String LOGIN_PAGE_FRACTION_URL = "users/sign_in";
-    public static final String DASHBOARD_PAGE_FRACTION_URL = "/companies/567199/app";
+    public static final String DASHBOARD_PAGE_FRACTION_URL = "https://app.copper.com/companies/";
     public static final String PEOPLE_PAGE_FRACTION_URL = "/browse/list/people/default";
     public static final String TASKS_PAGE_FRACTION_URL = "/browse/list/tasks/default";
 
