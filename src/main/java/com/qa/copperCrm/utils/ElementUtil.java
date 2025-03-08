@@ -2,14 +2,10 @@ package com.qa.copperCrm.utils;
 
 import com.qa.copperCrm.constants.AppConstants;
 import com.qa.copperCrm.factory.DriverFactory;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.List;
 
@@ -87,14 +83,6 @@ public class ElementUtil {
     }
 
 
-    public void switchToIframe(String idOrName) {
-        driver.switchTo().frame(idOrName);
-    }
-
-    public void switchToDefaultContent() {
-        driver.switchTo().defaultContent();
-    }
-
 
     public void moveToElement(WebElement element) {
         actions.moveToElement(element).perform();
@@ -108,10 +96,6 @@ public class ElementUtil {
         moveToElement(element);
         flashElement(element);
         actions.click(element).perform();
-    }
-
-    public void refreshPage() {
-        driver.navigate().refresh();
     }
 
     public void enterData(WebElement element, String data) {

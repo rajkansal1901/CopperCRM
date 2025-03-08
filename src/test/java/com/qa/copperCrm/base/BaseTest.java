@@ -3,12 +3,8 @@ package com.qa.copperCrm.base;
 import com.qa.copperCrm.factory.DriverFactory;
 import com.qa.copperCrm.pages.*;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
-
 import java.util.Properties;
 
 public class BaseTest {
@@ -28,7 +24,6 @@ public class BaseTest {
     public void setup(@Optional String browserName) {
         driverFactory = new DriverFactory();
         softAssert = new SoftAssert();
-
 
         properties = driverFactory.initProp();
         if (browserName != null) {

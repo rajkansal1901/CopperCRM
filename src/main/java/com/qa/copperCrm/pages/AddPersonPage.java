@@ -112,22 +112,22 @@ public class AddPersonPage {
      * @param zip
      * @param country
      * @param tags
-     * @return People Page
+     * @return People Page return the People page.
      */
     public PeoplePage addNewPerson(String firstname, String lastname, String prefix, String companyName, String title,
-                                   String workEmail, String workPhone, String street, String city, String state, String zip,
-                                   String country, String tags) {
-        elementUtil.waitAndClickElementAndSendKeys(firstName, firstname);
-        elementUtil.doSendKeys(lastName, lastname);
+                                   String workEmail, String workPhone, String street, String city, String state,
+                                   String zip, String country, String tags) {
+        elementUtil.waitAndClickElementAndSendKeys(this.firstName, firstname);
+        elementUtil.doSendKeys(this.lastName, lastname);
         elementUtil.doSendKeys(this.prefix, prefix);
         elementUtil.doSendKeys(this.companyName, companyName);
         elementUtil.doSendKeys(this.title, title);
         elementUtil.doSendKeys(this.workEmail, workEmail);
         elementUtil.doSendKeys(this.workPhone, workPhone);
-        elementUtil.doSendKeys(streetName, street);
+        elementUtil.doSendKeys(this.streetName, street);
         elementUtil.doSendKeys(this.city, city);
         elementUtil.doSendKeys(this.state, state);
-        elementUtil.doSendKeys(postalCode, zip);
+        elementUtil.doSendKeys(this.postalCode, zip);
         elementUtil.doSendKeys(this.country, country);
         elementUtil.doSendKeys(this.tags, tags);
 

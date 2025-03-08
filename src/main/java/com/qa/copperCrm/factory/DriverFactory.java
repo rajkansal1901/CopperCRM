@@ -19,10 +19,13 @@ import java.util.Properties;
 
 public class DriverFactory {
 
-    protected WebDriver driver;
     private Properties properties;
     public static String isHighlight;
-    public static ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+    public static ThreadLocal<WebDriver> driverThreadLocal;
+
+    public DriverFactory() {
+        driverThreadLocal = new ThreadLocal<>();
+    }
 
     /**
      * this method is used to initialize browser based on config.properties file
@@ -104,9 +107,9 @@ public class DriverFactory {
 
     /**
      * this method is used to take screenshot
-     * @return String(File path)
+     *
      */
-    public static String screenshot() {
+    public static void screenshot() {
         TakesScreenshot screenshot = (TakesScreenshot) getDriver();
         File srcfile = screenshot.getScreenshotAs(OutputType.FILE);
         String path = "screenshots/" + System.currentTimeMillis() + ".png";
@@ -116,6 +119,5 @@ public class DriverFactory {
         } catch (IOException ex) {
             System.out.println(ex.getCause());
         }
-        return path;
     }
 }

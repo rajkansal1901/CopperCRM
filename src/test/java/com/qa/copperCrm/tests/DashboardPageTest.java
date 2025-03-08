@@ -1,4 +1,5 @@
 package com.qa.copperCrm.tests;
+
 import com.qa.copperCrm.base.BaseTest;
 import com.qa.copperCrm.constants.AppConstants;
 import org.testng.Assert;
@@ -17,6 +18,12 @@ public class DashboardPageTest extends BaseTest {
     public void dashboardPageTitleTest() {
         String actualTitle = dashboardPage.getDashboardPageTitle();
         Assert.assertTrue(actualTitle.contains(AppConstants.DASHBOARD_PAGE_TITLE));
+    }
+
+    @Test
+    public void dashboardPageURLTest() {
+        String actualURL = dashboardPage.getUrl();
+        Assert.assertTrue(actualURL.contains(AppConstants.DASHBOARD_PAGE_FRACTION_URL));
     }
 
     @Test
